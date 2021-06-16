@@ -20,6 +20,15 @@
           </div>
         </div>
 
+        <div class="form-group row">
+          <%= f.label :categories, class: "col-2 col-form-label "%>
+          <div class="col-10 mt-3">
+            <%= f.collection_select( :category_ids, Category.all, :id, :name,
+            {prompt: "Make your selection from the list below (Can be empty)"}, {multiple: true, size: 3, class: "custom-select border #ced4da"}) %>
+
+          </div>
+        </div>
+
         <div class="form-group row justify-content-center">
           <%= f.submit class: "col-4 mt-3 btn btn-outline-info btn-lg"%>
         </div>
