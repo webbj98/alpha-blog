@@ -19,12 +19,16 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    
     if @user.save
+      print("got saved")
       session[:user_id] = @user.id
       flash[:notice] = "Welcome #{@user.username}. You successfully signed up."
       redirect_to articles_path
         
     else
+      print("didn't get saved")
+      print(@user.errors.full_messages)
       render 'new'    
     
     end
